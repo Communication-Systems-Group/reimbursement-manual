@@ -1,0 +1,21 @@
+{
+  "name": "reimbursement-manual",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Robin <mail@xorox.ch>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/masterproject-reimbursement/reimbursement-manual",
+  "moduleType": [],
+  "dependencies": {
+    "bootstrap": "~3.3.6"
+  },
+  "overrides":{
+    "bootstrap":{
+      "main":[
+      "dist/css/bootstrap.min.css"
+      ]
+    }
+  }
+}
