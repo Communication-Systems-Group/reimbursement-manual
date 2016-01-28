@@ -21,6 +21,8 @@ module.exports = function (grunt) {
 
 	grunt.loadNpmTasks('grunt-contrib-clean');
 
+	grunt.loadNpmTasks('grunt-wiredep');
+
 	// Define the configuration for all the tasks
 	grunt.initConfig({
 
@@ -51,6 +53,17 @@ module.exports = function (grunt) {
 					'*.tmp',
 					'*.xref'
 				]
+			}
+		},
+
+		wiredep: {
+			task: {
+				src: [
+					'manual.html'
+				],
+				options: {
+					src: 'manual.html'
+				}
 			}
 		},
 
