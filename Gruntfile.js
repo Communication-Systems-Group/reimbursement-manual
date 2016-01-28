@@ -23,20 +23,29 @@ module.exports = function (grunt) {
 
 	grunt.loadNpmTasks('grunt-wiredep');
 
+	grunt.loadNpmTasks('grunt-contrib-copy');
+
 	// Define the configuration for all the tasks
 	grunt.initConfig({
 
 		exec: {
-			execute_htlatex: 'htlatex manual.tex',
-			move_files_to_dist: 'mv manual.html dist/',
-			copy_images_to_dist: 'cp images/* dist/',
-			copy_styles_to_dist: 'cp css/styles.css dist/'
+			execute_htlatex: 'htlatex manual.tex "config.cfg"',
+		},
+
+		copy: {
+			main: {
+				files: [
+					{expand: true, src: ['bower_components/*/**'], dest: 'dist/'},
+					{expand: true, src: ['manual.html'], dest: 'dist/'},
+					{expand: true, src: ['images/*'], dest: 'dist/'}
+				],
+			},
 		},
 
 		clean : {
 			before_latex_gen: {
 				src: [
-					'dist/*.*'
+					'dist/*'
 				]
 			},
 			after_latex_gen: {
@@ -90,7 +99,7 @@ module.exports = function (grunt) {
 		http_upload: {
 			deploy: {
 				options: {
-					url: 'http://<%=deploy.username%>:<%=deploy.password%>@192.41.136.228/manager/text/deploy?path=manual&update=true',
+					url: 'http://<%=deploy.username%>:<%=deploy.password%>@192.41.136.227/manager/text/deploy?path=manual&update=true',
 					method: 'PUT',
 					rejectUnauthorized: true
 				},
@@ -103,9 +112,8 @@ module.exports = function (grunt) {
 	grunt.registerTask('build', [
 		'clean:before_latex_gen',
 		'exec:execute_htlatex',
-		'exec:move_files_to_dist',
-		'exec:copy_images_to_dist',
-		'exec:copy_styles_to_dist',
+		'wiredep',
+		'copy:main',
 		'clean:after_latex_gen',
 		'war'
 	]);
