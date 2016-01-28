@@ -11,10 +11,10 @@
   "dependencies": {
     "bootstrap": "~3.3.6"
   },
-  "overrides":{
-    "bootstrap":{
-      "main":[
-      "dist/css/bootstrap.min.css"
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "dist/css/bootstrap.min.css"
       ]
     }
   }
