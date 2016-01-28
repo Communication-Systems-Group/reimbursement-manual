@@ -40,6 +40,11 @@ module.exports = function (grunt) {
 					{expand: true, src: ['images/*'], dest: 'dist/'}
 				],
 			},
+			lightbox: {
+				files: [
+					{src: ['lightbox/*'], dest: 'dist/'},
+				]
+			}
 		},
 
 		clean : {
@@ -114,6 +119,7 @@ module.exports = function (grunt) {
 		'exec:execute_htlatex',
 		'wiredep',
 		'copy:main',
+		'copy:lightbox',
 		'clean:after_latex_gen',
 		'war'
 	]);
