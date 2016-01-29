@@ -1,7 +1,7 @@
-\section{Registration}
+\section*{Registration}
 \label{sec:registration}
 
-\subsection{Step 1}
+\subsection*{Step 1}
 The reimbursement-tool is connected to the UZH-IFI LDAP server. This allows employees of the IFI department to use their existing login-credentials provided by the University of Zurich.\newline
 On the initial login the user needs to pass a two-step registration process. See figure \ref{fig:registration-step01} for the first step. Here, the user needs to input two values:
 \begin{itemize}
@@ -19,7 +19,7 @@ An account can also be deactivated, so that the user cannot participate actively
     \label{fig:registration-step01}
 \end{figure}
 
-\subsection{Step 2}
+\subsection*{Step 2}
 On figure \ref{fig:registration-step02} the user needs to add his handwritten signature either by uploading an image or capture it using a third party touchscreen device, i.e. a smart phone. This signature is required later on to stamp it onto the generated Pdf document containing all receipts.
 
 \begin{figure}[H]
@@ -31,13 +31,13 @@ On figure \ref{fig:registration-step02} the user needs to add his handwritten si
 
 After completing the registration process, the captured information and signature can always be edited by navigation to the \textbf{Settings} on the navigation bar.
 
-\section{Expenses}
+\section*{Expenses}
 
 An expense is an entity captured by a \textit{Registered user}. Every expense is defined by an \textbf{SAP description} that will be visual in SAP. An expense consists of 1 to 15 receipts.
 
 The \textit{Registered user} has to create an expense, add receipts to it and submit it to a \textit{Manager}. The system selects the respective \textit{Manager} automatically given that is defined. The \textit{Manager} will check the expense for correctness, add the corresponding projects and submit it to be approved by the \textit{Finance management}. For a detailed description of the overall reimbursement-process refer to section \ref{sec:process}.
 
-\subsection{Create Expense}
+\subsection*{Create Expense}
 
 To create an expense, the user needs to navigate to the \textbf{Dashboard} and click on the button \textbf{Create new Expense}. A modal-window will appear to enter the \textbf{SAP description}. Once it is entered correctly and the user clicked \textbf{Next} an empty expense will be created. The user can start with adding receipts (see figure \ref{fig:expensesitems-overview}).
 
@@ -53,7 +53,7 @@ Further the user can add, edit and remove receipts. To add a new receipt the use
 Existing receipts can be edited and removed by clicking on the respective buttons.
 
 
-\subsection{Receipt}
+\subsection*{Receipt}
 \label{sec:addreceipt}
 By adding a new receipt or editing an existing one, the user needs to fill out the following mandatory fields:
 \begin{itemize}
@@ -76,10 +76,10 @@ See figure \ref{fig:expenses-add01}.
     \label{fig:expenses-add01}
 \end{figure}
 
-\subsection{Assign Expense to Manager}
+\subsection*{Assign Expense to Manager}
 If all receipts are captured, the expense will be submitted to a \textit{Manager}. Once it is submitted, it cannot be edited by the \textit{Creator} anymore.
 
-\subsection{Sign document}
+\subsection*{Sign document}
 \label{sec:signing}
 The signing is required for the generation of the Pdf that contains all of the captured receipts of the expense. This Pdf uses the signatures of the respective \textit{Creator}, \textit{Manager} and \textit{Finance management} to proof their acceptance of the expense and the captured receipts. During the signing process the user will be prompted to select his preferred signing method (see figure 3.5). The two different types available will be explained in detail:
 \begin{itemize}
@@ -97,7 +97,7 @@ The signing is required for the generation of the Pdf that contains all of the c
 Please note, that if a signing method has been selected all subsequent signers, like \textit{Manager} and \textit{Finance management} have to apply the same method.
 
 
-\section{User roles}
+\section*{User roles}
 \label{user-roles}
 
 Every user that exists in the LDAP of the University of Zurich is capable to login to the system. He can use the same user name and password that he uses for the other University of Zurich services for login.
@@ -121,7 +121,7 @@ The reimbursement-tool provides different user roles. The roles on the reimburse
     \end{itemize}
 \end{itemize}
 
-\section{Guest view}
+\section*{Guest view}
 The guest view allows users to retrieve expenses without the need of a user with role \textit{Registered user} for the reimbursement-tool. They can open the guest view using a special URL. It is provided on every printed expense document (see figure \ref{fig:pdf-web}). The URL is located on the lower right side of the page in form of a QR-Code and an URL. So that the user can either scan the QR-Code or typewrite the URL in a browser window and he'll get access to the respective expense. \newline
 The expense can be accessed using the URL provided for the prospective 6 months of the creation of the pdf.
 
@@ -132,7 +132,7 @@ The expense can be accessed using the URL provided for the prospective 6 months 
     \label{fig:pdf-web}
 \end{figure}
 
-\section{Cost categories}
+\section*{Cost categories}
 
 The existing cost categories of the reimbursement-tool can be edited and deactivated by the \textit{Finance management}. Furthermore a new cost category can be created by providing the German and English translation for it. See figure \ref{fig:admin-costcategories}.
 
@@ -143,8 +143,8 @@ The existing cost categories of the reimbursement-tool can be edited and deactiv
     \label{fig:admin-costcategories}
 \end{figure}
 
-\section{Retrieve Expenses}
-\subsection{Search for Expenses}
+\section*{Retrieve Expenses}
+\subsection*{Search for Expenses}
 
 For the \textit{Finance management} users a sophisticated search interface for expenses exist; the \textit{Admin Pool Search} (see figure \ref{fig:admin-search}). The search result will be limited by the following values:
 
@@ -170,14 +170,14 @@ The \textit{Finance management} users are authorized to execute specific actions
 \item \textbf{Reset}: has mistakenly submitted the expense, it can be reset and assigned back to him.
 \end{itemize}
 
-\subsection{Archive}
+\subsection*{Archive}
 Besides the \textit{Admin Pool Search} there exists an archive page for all users. The archive provides a list of all expenses in \textit{PRINTED} state that the current, logged-in user has created.
 
-\subsection{Analytics}
+\subsection*{Analytics}
 The reimbursement-tool provides an analytics-view for the \textit{Finance management}. It should help to empower their knowledge about the overall amount of the captured expenses, rate of printed expenses as well as the actual state-distribution among the expenses.
 
 
-\section{Expense process}
+\section*{Expense process}
 \label{sec:process}
 
 The entire process is basically divided into three iterations. The \textbf{1. iteration}; expense creation and confirmation, \textbf{2. iteration}; the expense signing, \textbf{3. iteration}; print and carry the documents to the \textit{Finance management} of the University of Zurich.\newline
