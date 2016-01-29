@@ -30,7 +30,11 @@ module.exports = function (grunt) {
 	// Define the configuration for all the tasks
 	grunt.initConfig({
 
+		// reads the deploy parameters username, password
+		deploy: grunt.file.readJSON('deploy.json'),
+
 		exec: {
+			// generates html file out of latex file
 			execute_htlatex: 'htlatex manual.tex "config.cfg"',
 		},
 
@@ -48,6 +52,19 @@ module.exports = function (grunt) {
 			}
 		},
 
+		// wires all bower_component files into manual.html file
+		wiredep: {
+			task: {
+				src: [
+					'manual.html'
+				],
+				options: {
+					src: 'manual.html'
+				}
+			}
+		},
+
+		// copies all wiredep files to the dist folder
 		wiredepCopy: {
 			target: {
 				options: {
@@ -78,17 +95,6 @@ module.exports = function (grunt) {
 					'*.tmp',
 					'*.xref'
 				]
-			}
-		},
-
-		wiredep: {
-			task: {
-				src: [
-					'manual.html'
-				],
-				options: {
-					src: 'manual.html'
-				}
 			}
 		},
 
