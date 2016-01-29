@@ -25,6 +25,8 @@ module.exports = function (grunt) {
 
 	grunt.loadNpmTasks('grunt-contrib-copy');
 
+	grunt.loadNpmTasks('grunt-wiredep-copy');
+
 	// Define the configuration for all the tasks
 	grunt.initConfig({
 
@@ -35,7 +37,6 @@ module.exports = function (grunt) {
 		copy: {
 			main: {
 				files: [
-					{expand: true, src: ['bower_components/*/**'], dest: 'dist/'},
 					{expand: true, src: ['manual.html'], dest: 'dist/'},
 					{expand: true, src: ['images/*'], dest: 'dist/'}
 				],
@@ -45,6 +46,16 @@ module.exports = function (grunt) {
 					{src: ['lightbox/*'], dest: 'dist/'},
 				]
 			}
+		},
+
+		wiredepCopy: {
+			target: {
+				options: {
+					src: '.',
+					dest: 'dist',
+					wiredep: {}
+				}
+			},
 		},
 
 		clean : {
@@ -120,6 +131,7 @@ module.exports = function (grunt) {
 		'wiredep',
 		'copy:main',
 		'copy:lightbox',
+		'wiredepCopy',
 		'clean:after_latex_gen',
 		'war'
 	]);
