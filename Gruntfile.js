@@ -27,6 +27,8 @@ module.exports = function (grunt) {
 
 	grunt.loadNpmTasks('grunt-wiredep-copy');
 
+	grunt.loadNpmTasks('grunt-http-upload');
+
 	// Define the configuration for all the tasks
 	grunt.initConfig({
 
@@ -119,9 +121,18 @@ module.exports = function (grunt) {
 		},
 
 		http_upload: {
-			deploy: {
+			int: {
 				options: {
-					url: 'http://<%=deploy.username%>:<%=deploy.password%>@192.41.136.227/manager/text/deploy?path=manual&update=true',
+					url: 'http://<%=deploy.username%>:<%=deploy.password%>@192.41.136.227/manager/text/deploy?path=/manual&update=true',
+					method: 'PUT',
+					rejectUnauthorized: true
+				},
+				src: 'dist/reimbursement-manual.war',
+				dest: 'reimbursement-manual'
+			},
+			prod: {
+				options: {
+					url: 'http://<%=deploy.username%>:<%=deploy.password%>@192.41.136.228/manager/text/deploy?path=/manual&update=true',
 					method: 'PUT',
 					rejectUnauthorized: true
 				},
@@ -140,5 +151,15 @@ module.exports = function (grunt) {
 		'wiredepCopy',
 		'clean:after_latex_gen',
 		'war'
+	]);
+
+	grunt.registerTask('deploy-int', [
+		'build',
+		'http_upload:int'
+	]);
+
+	grunt.registerTask('deploy-prod', [
+		'build',
+		'http_upload:prod'
 	]);
 };
