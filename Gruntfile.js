@@ -44,6 +44,7 @@ module.exports = function (grunt) {
 			main: {
 				files: [
 					{expand: true, src: ['manual.html'], dest: 'dist/'},
+					{expand: true, src: ['styles.css'], dest: 'dist/'},
 					{expand: true, src: ['images/*'], dest: 'dist/'}
 				],
 			},
@@ -88,7 +89,7 @@ module.exports = function (grunt) {
 					'*.4ct',
 					'*.4tc',
 					'*.aux',
-					'*.css',
+					'manual.css',
 					'*.dvi',
 					'*.html',
 					'*.idv',
